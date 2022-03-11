@@ -24,13 +24,13 @@
         <p>This is an example form that validates the entered data.</p>
         <form class="form">
             <label for="name" class="form__label">Name</label>
-            <input id="name" type="text" class="form__input js-textCode">
+            <input id="name" type="text" class="form__input js-textCode" maxlength="30">
             <label for="zipCode" class="form__label">Postal code</label>
-            <input id="zipCode" type="text" class="form__input js-postalCode">
+            <input id="zipCode" type="text" class="form__input js-postalCode" maxlength="6">
             <label for="email" class="form__label">E-mail</label>
-            <input id="email" type="text" class="form__input js-emailCode">
+            <input id="email" type="text" class="form__input js-emailCode" maxlength="100">
             <label for="url" class="form__label">Web site</label>
-            <input id="url" type="text" class="form__input js-urlCode" value="https://">
+            <input id="url" type="text" class="form__input js-urlCode" value="https://" maxlength="100">
             <button class="form__button js-submitForm">send</button>
         </form>
         <p class="sectionForm__response"></p>
