@@ -1,0 +1,13 @@
+.footerContent {
+    margin-top: 40px;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+}
+  
+.footerLink {
+    color: rgb(255, 255, 255);
+}
+  
+.footerLink:hover {
+    color: rgb(230, 230, 230);
+}

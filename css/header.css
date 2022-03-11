@@ -1,0 +1,19 @@
+.header {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 7px rgb(71,49,54);
+}
+  
+.header__title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 36px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+  
+.header_version {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}

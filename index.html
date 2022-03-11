@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Form</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/section.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body class="page">
+    <header class="header">
+        <h1 class="header__title">Sample form</h1>
+        <p class="header_version">Version: v1.0</p>
+    </header>
+    <section class="sectionForm">
+        <p>This is an example form that validates the entered data.</p>
+        <form class="form">
+            <label for="name" class="form__label">Name</label>
+            <input id="name" type="text" class="form__input js-textCode">
+            <label for="zipCode" class="form__label">Postal code</label>
+            <input id="zipCode" type="text" class="form__input js-postalCode">
+            <label for="email" class="form__label">E-mail</label>
+            <input id="email" type="text" class="form__input js-emailCode">
+            <label for="url" class="form__label">Web site</label>
+            <input id="url" type="text" class="form__input js-urlCode" value="https://">
+            <button class="form__button js-submitForm">send</button>
+        </form>
+        <p class="sectionForm__response"></p>
+        <p class="sectionForm__downParagraph">Javascript code <b>checks</b> the following <b>formats</b>:</p>
+        <ul class="unordered">
+            <li class="unordered__ittem">polish charset</li>
+            <li class="unordered__ittem">postal code</li>
+            <li class="unordered__ittem">url</li>
+            <li class="unordered__ittem">e-mail</li>
+        </ul>
+    </section>
+    <footer class="footerContent">
+        <p>Wykonanie w ramach nauki programowania <a href="https://youcode.pl" class="footerLink">YouCode</a></p>
+    </footer>
+</body>
+</html>
