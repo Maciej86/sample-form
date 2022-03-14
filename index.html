@@ -23,14 +23,32 @@
     <section class="sectionForm">
         <p>This is an example form that validates the entered data.</p>
         <form class="form">
-            <label for="name" class="form__label">Name</label>
-            <input id="name" type="text" class="form__input js-textCode" maxlength="30">
-            <label for="zipCode" class="form__label">Postal code</label>
-            <input id="zipCode" type="text" class="form__input js-postalCode" maxlength="6">
-            <label for="email" class="form__label">E-mail</label>
-            <input id="email" type="text" class="form__input js-emailCode" maxlength="100">
-            <label for="url" class="form__label">Web site</label>
-            <input id="url" type="text" class="form__input js-urlCode" value="https://" maxlength="100">
+            <ul class="form__listUnordered">
+                <li class="form__item">
+                    <label class="form__label">
+                        <span>Name</span>
+                        <input type="text" class="form__input js-textCode" maxlength="30">
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label class="form__label">
+                        <span>Postal code</span>
+                        <input id="zipCode" type="text" class="form__input js-postalCode" maxlength="6">
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label class="form__label">
+                        <span>E-mail</span>
+                        <input id="email" type="text" class="form__input js-emailCode" maxlength="100">
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label class="form__label">
+                        <span>Web site</span>
+                        <input id="url" type="text" class="form__input js-urlCode" value="https://" maxlength="100">
+                    </label>
+                </li>
+            </ul>
             <button class="form__button js-submitForm">send</button>
         </form>
         <p class="sectionForm__response"></p>
