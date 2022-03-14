@@ -87,7 +87,7 @@
     padding: 3px 0;
 }
   
-.unordered__ittem:before {
+.unordered__ittem::before {
     content: "\2611";
     margin-right: 8px;
 }
