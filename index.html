@@ -28,24 +28,28 @@
                         <span>Name</span>
                         <input type="text" class="form__input js-name" maxlength="30">
                     </label>
+                    <p class="form__error js-textErrorName">Błąd kodu</p>
                 </li>
                 <li class="form__item">
                     <label class="form__label">
                         <span>Postal code</span>
-                        <input id="zipCode" type="text" class="form__input js-postal" maxlength="6">
+                        <input type="text" class="form__input js-postal" maxlength="6">
                     </label>
+                    <p class="form__error js-textErrorPost"></p>
                 </li>
                 <li class="form__item">
                     <label class="form__label">
                         <span>E-mail</span>
-                        <input id="email" type="text" class="form__input js-email" maxlength="100">
+                        <input type="text" class="form__input js-email" maxlength="100">
                     </label>
+                    <p class="form__error js-textErrorEmail"></p>
                 </li>
                 <li class="form__item">
                     <label class="form__label">
                         <span>Web site</span>
-                        <input id="url" type="text" class="form__input js-url" value="https://" maxlength="100">
+                        <input type="text" class="form__input js-url" value="https://" maxlength="100">
                     </label>
+                    <p class="form__error js-textErrorUrl"></p>
                 </li>
             </ul>
             <button class="form__button js-submitForm">send</button>
