@@ -3,7 +3,15 @@
         document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
     }
 
-    const checkValues = fieldValues => {
+    const checkValues = (fieldValues, regexp, fieldError) => {
+        fieldValues.forEach((fieldValue, index) => {
+            regexp[index].test(fieldValue) 
+                ? document.querySelector(`.js-${fieldError[index]}TextError`).classList.remove("form__error--show")
+                : showErrorMessage(fieldError[index]);
+        });
+    }
+
+    const validateForm = fieldValues => {
         const regexp = [
             /^[a-z-zżźćńółęąś]{2,}$/gi,
             /^\d{2}-\d{3}$/g,
@@ -18,11 +26,7 @@
             "url",
         ];
 
-        fieldValues.forEach((fieldValue, index) => {
-            regexp[index].test(fieldValue) 
-                ? document.querySelector(`.js-${fieldError[index]}TextError`).classList.remove("form__error--show")
-                : showErrorMessage(fieldError[index]);
-        });
+        checkValues(fieldValues, regexp, fieldError);
     }
 
     const onFormSubmit = (event) => {
@@ -40,7 +44,7 @@
             fieldUrlElement,
         ];
 
-        checkValues(fieldValues);
+        validateForm(fieldValues);
     }
 
     const init = () => {
