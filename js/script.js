@@ -29,7 +29,7 @@
         checkValues(fieldValues, regexp, fieldName);
     }
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = event => {
         event.preventDefault();
 
         const fieldNameElement = document.querySelector(".js-name").value.trim(); 
