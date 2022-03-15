@@ -1,16 +1,17 @@
 {
+    const fieldName = [
+        "name",
+        "postal",
+        "email",
+        "url",
+    ];
+
     const showErrorMessage = fieldError => {
         document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
     }
 
     const hiddenErrorMessage = fieldError => {
         document.querySelector(`.js-${fieldError}TextError`).classList.remove("form__error--show");
-    }
-
-    const checkValues = (fieldValues, regexp, fieldError) => {
-        fieldValues.forEach((fieldValue, index) => {
-            regexp[index].test(fieldValue) ? hiddenErrorMessage(fieldError[index]) : showErrorMessage(fieldError[index]);
-        });
     }
 
     const validateForm = fieldValues => {
@@ -21,31 +22,19 @@
             /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
         ];
 
-        const fieldName = [
-            "name",
-            "postal",
-            "email",
-            "url",
-        ];
-
-        checkValues(fieldValues, regexp, fieldName);
+        fieldValues.forEach((fieldValue, index) => {
+            regexp[index].test(fieldValue) ? hiddenErrorMessage(fieldName[index]) : showErrorMessage(fieldName[index]);
+        });
     }
 
     const onFormSubmit = event => {
         event.preventDefault();
 
-        const fieldNameElement = document.querySelector(".js-name").value.trim(); 
-        const fieldPostalElement = document.querySelector(".js-postal").value.trim(); 
-        const fieldEmailElement = document.querySelector(".js-email").value.trim(); 
-        const fieldUrlElement = document.querySelector(".js-url").value.trim(); 
-
-        const fieldValues = [
-            fieldNameElement,
-            fieldPostalElement,
-            fieldEmailElement,
-            fieldUrlElement,
-        ];
-
+        const fieldValues = [];
+        for(const name of fieldName) {
+            fieldValues.push(document.querySelector(`.js-${name}`).value.trim());
+        }
+        
         validateForm(fieldValues);
     }
 
