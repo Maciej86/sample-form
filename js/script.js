@@ -1,5 +1,5 @@
 {
-    const fieldName = [
+    const fieldNames = [
         "name",
         "postal",
         "email",
@@ -23,7 +23,7 @@
         ];
 
         fieldValues.forEach((fieldValue, index) => {
-            regexp[index].test(fieldValue) ? hiddenErrorMessage(fieldName[index]) : showErrorMessage(fieldName[index]);
+            regexp[index].test(fieldValue) ? hiddenErrorMessage(fieldNames[index]) : showErrorMessage(fieldNames[index]);
         });
     }
 
@@ -31,7 +31,7 @@
         event.preventDefault();
 
         const fieldValues = [];
-        for(const name of fieldName) {
+        for(const name of fieldNames) {
             fieldValues.push(document.querySelector(`.js-${name}`).value.trim());
         }
         
