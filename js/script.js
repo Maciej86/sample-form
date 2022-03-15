@@ -9,9 +9,7 @@
 
     const checkValues = (fieldValues, regexp, fieldError) => {
         fieldValues.forEach((fieldValue, index) => {
-            regexp[index].test(fieldValue) 
-                ? hiddenErrorMessage(fieldError[index])
-                : showErrorMessage(fieldError[index]);
+            regexp[index].test(fieldValue) ? hiddenErrorMessage(fieldError[index]) : showErrorMessage(fieldError[index]);
         });
     }
 
