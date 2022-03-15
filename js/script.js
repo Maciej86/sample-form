@@ -3,10 +3,14 @@
         document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
     }
 
+    const hiddenErrorMessage = fieldError => {
+        document.querySelector(`.js-${fieldError}TextError`).classList.remove("form__error--show");
+    }
+
     const checkValues = (fieldValues, regexp, fieldError) => {
         fieldValues.forEach((fieldValue, index) => {
             regexp[index].test(fieldValue) 
-                ? document.querySelector(`.js-${fieldError[index]}TextError`).classList.remove("form__error--show")
+                ? hiddenErrorMessage(fieldError[index])
                 : showErrorMessage(fieldError[index]);
         });
     }
