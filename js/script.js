@@ -19,14 +19,14 @@
             /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
         ];
 
-        const fieldError = [
+        const fieldName = [
             "name",
             "postal",
             "email",
             "url",
         ];
 
-        checkValues(fieldValues, regexp, fieldError);
+        checkValues(fieldValues, regexp, fieldName);
     }
 
     const onFormSubmit = (event) => {
