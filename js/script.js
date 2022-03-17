@@ -3,7 +3,7 @@
         document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
     }
 
-    const hiddenErrorMessage = fieldError => {
+    const hideErrorMessage = fieldError => {
         document.querySelector(`.js-${fieldError}TextError`).classList.remove("form__error--show");
     }
 
@@ -16,7 +16,7 @@
         };
 
         for(const propertyValue in values) {
-            regexp[propertyValue].test(values[propertyValue]) ? hiddenErrorMessage(propertyValue) : showErrorMessage(propertyValue);
+            regexp[propertyValue].test(values[propertyValue]) ? hideErrorMessage(propertyValue) : showErrorMessage(propertyValue);
         }
     }
 
