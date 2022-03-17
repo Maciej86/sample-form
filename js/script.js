@@ -1,15 +1,19 @@
 {
-    const sendForm = validate => {
+    const sendForm = isValidate => {
         const textSendForm = document.querySelector(`.form__success`);
-        validate ? textSendForm.classList.add(`form__success--show`) : textSendForm.classList.remove(`form__success--show`);
+        if (isValidate) {
+            textSendForm.classList.add(`form__success--show`);
+        } else {
+            textSendForm.classList.remove(`form__success--show`);
+        }
     }
 
-    const showErrorMessage = fieldError => {
-        document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
+    const showErrorMessage = fieldName => {
+        document.querySelector(`.js-${fieldName}TextError`).classList.add("form__error--show");
     }
 
-    const hideErrorMessage = fieldError => {
-        document.querySelector(`.js-${fieldError}TextError`).classList.remove("form__error--show");
+    const hideErrorMessage = fieldName => {
+        document.querySelector(`.js-${fieldName}TextError`).classList.remove("form__error--show");
     }
 
     const validateForm = values => {
@@ -20,17 +24,16 @@
             url: /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
         };
 
-        let validate = true;
-        for(const propertyValue in values) {
-            if(regexp[propertyValue].test(values[propertyValue])) {
-                hideErrorMessage(propertyValue);
+        let isValidate = true;
+        for (const fieldName in values) {
+            if (regexp[fieldName].test(values[fieldName])) {
+                hideErrorMessage(fieldName);
             } else {
-                showErrorMessage(propertyValue);
-                validate = false;
+                showErrorMessage(fieldName);
+                isValidate = false;
             }
         }
-
-        sendForm(validate);
+        sendForm(isValidate);
     }
 
     const onFormSubmit = event => {
@@ -42,7 +45,6 @@
             email: document.querySelector(`.js-email`).value.trim(),
             url: document.querySelector(`.js-url`).value.trim(),
         };
-
         validateForm(values);
     }
 
