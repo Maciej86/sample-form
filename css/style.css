@@ -18,3 +18,10 @@ html {
     font-family: "Montserrat", sans-serif;
     color: rgb(29,29,29); 
 }
+
+@media (max-width: 500px) {
+    .page {
+        height: auto;
+        padding: 20px 0;
+    }
+}
