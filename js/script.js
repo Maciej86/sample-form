@@ -18,7 +18,7 @@
 
     const validateForm = values => {
         const regexp = {
-            name: /^[a-z-zżźćńółęąś]{2,}$/gi,
+            name: /^[a-z-żźćńółęąś]{2,}$/gi,
             postal: /^\d{2}-\d{3}$/g,
             email: /^[a-z\d-]+\w?\.?([\w\d-]+)?@[\w\d-]{2,}\.[a-z]{2,6}(\.[a-z]{2,6})?$/gi,
             url: /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
