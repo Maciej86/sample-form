@@ -1,4 +1,9 @@
 {
+    const sendForm = validate => {
+        const textSendForm = document.querySelector(`.form__success`);
+        validate ? textSendForm.classList.add(`form__success--show`) : textSendForm.classList.remove(`form__success--show`);
+    }
+
     const showErrorMessage = fieldError => {
         document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
     }
@@ -15,9 +20,17 @@
             url: /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
         };
 
+        let validate = true;
         for(const propertyValue in values) {
-            regexp[propertyValue].test(values[propertyValue]) ? hideErrorMessage(propertyValue) : showErrorMessage(propertyValue);
+            if(regexp[propertyValue].test(values[propertyValue])) {
+                hideErrorMessage(propertyValue);
+            } else {
+                showErrorMessage(propertyValue);
+                validate = false;
+            }
         }
+
+        sendForm(validate);
     }
 
     const onFormSubmit = event => {

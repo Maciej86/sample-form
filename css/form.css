@@ -81,6 +81,18 @@
     display: block;
 }
 
+.form__success {
+    display: none;
+    padding: 15px;
+    background: rgb(39,174,96);
+    color: rgb(255,255,255);
+    text-shadow: 1px 1px rgb(33,138,76);
+}
+
+.form__success--show {
+    display: block;
+}
+
 .unordered {
     padding-left: 20px;
     list-style: none;
