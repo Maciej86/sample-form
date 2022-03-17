@@ -1,11 +1,4 @@
 {
-    const fieldNames = [
-        "name",
-        "postal",
-        "email",
-        "url",
-    ];
-
     const showErrorMessage = fieldError => {
         document.querySelector(`.js-${fieldError}TextError`).classList.add("form__error--show");
     }
@@ -14,28 +7,30 @@
         document.querySelector(`.js-${fieldError}TextError`).classList.remove("form__error--show");
     }
 
-    const validateForm = fieldValues => {
-        const regexp = [
-            /^[a-z-zżźćńółęąś]{2,}$/gi,
-            /^\d{2}-\d{3}$/g,
-            /^[a-z\d-]+\w?\.?([\w\d-]+)?@[\w\d-]{2,}\.[a-z]{2,6}(\.[a-z]{2,6})?$/gi,
-            /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
-        ];
+    const validateForm = values => {
+        const regexp = {
+            name: /^[a-z-zżźćńółęąś]{2,}$/gi,
+            postal: /^\d{2}-\d{3}$/g,
+            email: /^[a-z\d-]+\w?\.?([\w\d-]+)?@[\w\d-]{2,}\.[a-z]{2,6}(\.[a-z]{2,6})?$/gi,
+            url: /^([https://|http://])+www\.([a-z\d_-]?){2,}\.[a-z]{2,5}(\.[a-z]{2,5})?$/gi,
+        };
 
-        fieldValues.forEach((fieldValue, index) => {
-            regexp[index].test(fieldValue) ? hiddenErrorMessage(fieldNames[index]) : showErrorMessage(fieldNames[index]);
-        });
+        for(const propertyValue in values) {
+            regexp[propertyValue].test(values[propertyValue]) ? hiddenErrorMessage(propertyValue) : showErrorMessage(propertyValue);
+        }
     }
 
     const onFormSubmit = event => {
         event.preventDefault();
 
-        const fieldValues = [];
-        for(const name of fieldNames) {
-            fieldValues.push(document.querySelector(`.js-${name}`).value.trim());
-        }
-        
-        validateForm(fieldValues);
+        const values = {
+            name: document.querySelector(`.js-name`).value.trim(),
+            postal: document.querySelector(`.js-postal`).value.trim(),
+            email: document.querySelector(`.js-email`).value.trim(),
+            url: document.querySelector(`.js-url`).value.trim(),
+        };
+
+        validateForm(values);
     }
 
     const init = () => {
